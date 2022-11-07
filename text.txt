@@ -1,0 +1,217 @@
+Exp2
+
+Mkdir git-dvcs
+
+Cd git-dvcs/
+
+Git config
+
+Git config –global user.name n user.email
+
+Git config –global --list
+
+Git add .
+
+Git status
+
+Git commit -m ‘first commit’
+
+Mkdir git-demo-project
+
+Cd git-demo-project/
+
+Make index.html file
+
+Git status
+
+Git add .
+
+Git commit -am ‘express commit’
+
+Git status
+
+Modify index.html
+
+Touch teststatus
+
+Git status
+
+Git checkout - - teststatus
+
+Git checkout - - index.html
+
+Git add index.html
+
+Git add teststatus
+
+Git status
+
+Git commit -am ‘express commit’
+
+Git status
+
+Git log
+
+Git log - -oneline
+
+Git log - -oneline teststatus
+
+Create a repo on github
+
+Git clone url of repo
+
+Ls
+
+Git remote add origin meghanaurl
+
+Git remote show origin
+
+Git remote add origin myrepo url
+
+Git remote rm origin
+
+Git push –set-upstream myrepourl master
+
+Git pull
+
+Cat index.html
+
+Exp3
+
+Git init
+
+Git –version
+
+Git status
+
+Git config
+
+Git config –global user.name n user.email
+
+Git config –global --list
+
+Make 2 docx files
+
+Git status
+
+Git add filenames
+
+Git commit -m ‘first commit’
+
+Git log
+
+Git log –oneline
+
+Make a repo
+
+Git remote add origin myrepo url
+
+Git remote show origin
+
+Git push -u origin master
+
+Git pull
+
+Git fetch
+
+Git merge origin/master
+
+Git status
+
+Git log –oneline
+
+Git config –global color.ui auto
+
+Git config –global core.excludesfile .gitignore
+
+Git config –global --list
+
+Git clone urlof repo
+
+Make demo.txt file
+
+Git add clonefoldername/
+
+Git status
+
+Git commit – ‘file added’
+
+Git branch temp
+
+Git branch
+
+Git checkout temp
+
+Git merge temp
+
+Git remote add temp urlofrepo
+
+Git fetch temp
+
+Git pull urlofrepo -allow-unrelated-histories
+
+Git rebase master
+
+Git reset –hard
+
+Exp8
+
+Docker version
+
+Docker login
+
+Docker search apache
+
+Docker search redis
+
+Docker run docker/whalesay cowsay HELLO EVERYONE
+
+Docker ps
+
+Docker ps -a
+
+Docker rmi docker/whalesay
+
+Docker images
+
+Docker pull centos:latest
+
+Docker images
+
+Docker run -it –name webserverdemo centos:latest
+
+#yum install httpd -y
+
+#ls
+
+#cd var
+
+#cd www
+
+#cd html
+
+#cat > index.html
+
+#exit
+
+Pwd
+
+Docker commit webserverdemo webserver:v1
+
+Docker run -p 8080:80 webserver1:v1 /usr/sbin/httpd -DFOREGROUND
+
+Docker tag webserve1:v1 roshanidmce/roshrepo:v1
+
+Docker push roshanidmce
+
+Docker push roshanidmce/roshrepo
+
+Docker pull janhvigujare/janhvi:v1
+
+Docker images
+
+Docker -itd -p 8585:80 –name janhvigujare janhvi/webserver1:v1
+
+Docker ps
+
+Docker ps -a
