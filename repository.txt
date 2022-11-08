@@ -231,3 +231,126 @@ app.post('/tshirt/:id', (req,res) =>{
         tshirt: `with your ${logo} and ID of{id}`,
     });
 });
+
+use of let,const,var
+<html>
+<head>
+<title>
+  Use of const, var and let
+</title>
+</head>
+<body>
+
+  <h2>Redeclaring a Variable Using var, let & const</h2>
+  <p class="demo">Using Var[declared as 10, redeclared as 25]: </p>
+  <p id="demo1"></p>
+  <p class="demo">Using Let[declared as 20, redeclared as 15]: </p>
+  <p id="demo2"></p>
+  <p class="demo">Using const[declared as 30, redeclared as 5]: </p >
+  <p id ="demo3"></p>
+  <script>
+    var x = 10;
+    let y = 20;
+    const z = 30; 
+    {
+      var x = 25;
+      let y = 15;
+      const z = 5;
+    }
+    document.getElementById("demo1").innerHTML =x;
+    document.getElementById("demo2").innerHTML =y;
+    document.getElementById("demo3").innerHTML =z;
+ </script>
+</body>
+</html>
+
+control statement
+<!DOCTYPE html> 
+<html>
+<head>
+<title>
+control statement
+</title>
+</head> 
+<body>
+<p>Display a time-based greeting:</p>
+<p id="demo"></p>
+<script>
+    let hour = new Date().getHours();
+    let greeting;
+    if (hour < 20) {
+    greeting = "Good day";
+    } 
+    else {
+    greeting = "Good evening";
+    }
+    document.getElementById("demo").innerHTML = greeting;
+</script>
+</body> 
+</html>
+
+dom methods
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+DOM Methods
+</title>
+</head>
+<body>
+<p id="demo1" style="font-family:verdana ; font-size:20px"></p>
+<p id="demo2" style="font-family:Times New Roman ; font-size:25px"></p>
+<p id="demo3" style="font-family:Comic sans MS ; font-size:30px"></p>
+<script>
+document.getElementById("demo1").innerHTML = "Hello World!";
+document.getElementById("demo2").innerHTML = "Hello World!";
+document.getElementById("demo3").innerHTML = "Hello World!";
+</script>
+</body>
+</html>
+
+arrow function
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+arrow and generator function    
+</title>
+</head>
+<body>
+<p id="demo" style="font-family:castellar ; font-size:35px"></p>
+<script>
+var hello;
+hello = () => {
+return "Hello World!";
+}
+document.getElementById("demo").innerHTML = hello();
+</script>
+</body>
+</html>
+
+generator function
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+arrow and generator function    
+</title>
+</head>
+<body>
+<script>
+function * fun()
+{
+    yield 10;
+    yield 20;
+    yield 30;   
+}
+var gen = fun();
+document.write(gen.next().value);
+document.write("<br>");
+document.write(gen.next().value);
+document.write("<br>");
+document.write(gen.next().value);
+</script>  
+</body>
+</html>
