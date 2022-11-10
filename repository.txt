@@ -1,356 +1,63 @@
-component list
-import React from 'react';
+exp1
 
-function App() {
-  const Students = [
-    { rollno: 'Roll No - 1',
-      name: 'Name - Eve' ,
-      maths: 'Mathematics - 15', 
-      science:'Science - 9', 
-      english:'English - 13'}
-];
-  return (
-    <ul>
-      {Students.map(data => (
-        <li key={data.rollno}> 
-        <p>{data.rollno}</p>
-        <p>{data.name}</p>
-        <p>{data.maths}</p>
-        <p>{data.science}</p>
-        <p>{data.english}</p>
-        </li>
-      ))}
-    </ul>
-  );
-}
-export default App;
-hook form
+1.Login as root user
+2.Create iam user-username,password>create group>create user>permission n policy -administrator access,aws cloud9 environment member
+3.Services>developer tools>cloud9>create environment
+4.Terminal-  git --version , aws iam get-user
+5.File>new template>html>code
+6.Share>iam username>invite
+7.Incognito>login with iam>cloud 9>shared with you>open ide
+
+exp2
+
+1.Elastic beanstalk> create application>MYEBS>EBS>CICD>PHP
+2.Download zip file from https://github.com/aws-samples/aws-codepipeline-s3-codedeploy-linux>dist folder> unzip
+3.Create S3 bucket n upload folder
+4.Create pipeline> s3://bucketname/aws-codepipeline-s3-codedeploy-linux-master > beanstalk
+5.Environment>url
 
 
-import React, { useState } from "react";
+exp3
 
-  export default function App() {
-  const [state, setState] = useState({
-    email: "",
-    password: ""
-  });
+1.Install terraform
+2.Terraform_Scripts (folder) in c drive>open with vs>new file>E2ONTERRAFORM.tf
 
-  const handleInputChange = (event) => {
-    setState((prevProps) => ({
-      ...prevProps,
-      [event.target.name]: event.target.value
-    }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(state);
-  };
-
-  return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <div className="form-control">
-          <label>Email</label>
-          <input
-            type="text"
-            name="email"
-            value={state.email}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="form-control">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={state.password}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="form-control">
-          <label></label>
-          <button type="submit">Login</button>
-        </div>
-      </form>
-    </div>
-  );
+provider "aws" {
+   access_key=""
+   secret_key=""
+   region="us-east-1"
 }
 
-node module
-index.js
-var myLogModule = require('./module.js');
-myLogModule.name('Datta Meghe College of Engineering');
-myLogModule.domain('B.E. in IT');
+resource "aws_instance" "terraform-ec2"{
+  ami=""
+  instance_type="t2.micro"
 
-module.js
-var detail = {
-    name: function (name) {
-        console.log('Name of college:' +name);
-    },
-    domain:function (domain){
-        console.log('Degree:' +domain);
-    }
-};
-module.exports = detail;
-
-callback function
-callback.js
-function readfile(){
-var fs = require("fs");
-var filedata = fs.readFileSync('input.txt');
-console.log(filedata.toString());
-console.log("End of Program execution");
 }
-readfile();
 
-input.txt
-Hello Programmer!!!
-Learn NodeJS Callback Function
+3.IAM create new user terraform_user select option Programmatic Access then click on next for “Permissions”
+   >create group administrator access
+4.Access n secret key
+5.Ec2>launch instance> ami
+6.cmd run as administrator - cd \ , cd Terraform_Scripts , terraform init , terraform plan , terraform apply , terraform destroy
 
-eventloop.js
-console.log("This is the first statement");  
-setTimeout(function(){
-    console.log("This is the second statement");
-}, 1000);   
-console.log("This is the third statement"); 
+exp4
 
-eventemitter
-const EventEmitter = require('events');
-var eventEmitter = new EventEmitter();   
-var geek1= (msg) => {
-    console.log("Message from geek1: " + msg);
-};   
-var geek2 = (msg) => {
-    console.log("Message from geek2: " + msg);
-};
-eventEmitter.on('myEvent', geek1);
-eventEmitter.on('myEvent', geek1);
-eventEmitter.on('myEvent', geek2);
-eventEmitter.removeListener('myEvent', geek1);
-eventEmitter.emit('myEvent', "Event occurred");
-eventEmitter.removeAllListeners('myEvent');
-eventEmitter.emit('myEvent', "Event occurred");
-
-wb
-buf = new Buffer(256);
-len = buf.write("Simply Easy Learning");
-console.log("Octets written :"+ len);
-rb
-buf = new Buffer(26);
-for (var i=0; i<26; i++){
-    buf[i] = i+97;
-}
-console.log(buf.toString('ascii'));
-console.log(buf.toString('ascii',0,5));
-console.log(buf.toString('utf8',0,5));
-console.log(buf.toString(undefined,0,5));
-ws
-var fs = require("fs");
-var data = 'Simply Easy Learning';
-var writerStream = fs.createWriteStream('input.txt');
-writerStream.write(data,'UTF8');
-writerStream.end();
-writerStream.on('finish', function() {
-   console.log("Write completed.");
-});
-writerStream.on('error', function(err) {
-   console.log(err.stack);
-});
-console.log("Program Ended");
-rs
-var fs = require("fs");
-var data = '';
-var readerStream = fs.createReadStream('input.txt');
-readerStream.setEncoding('UTF8');
-readerStream.on('data', function(chunk) {
-   data += chunk;
-});
-readerStream.on('end',function() {
-   console.log(data);
-});
-readerStream.on('error', function(err) {
-   console.log(err.stack);
-});
-console.log("Program Ended");
-
-webserver
-var http = require('http');
-var server = http.createServer(function (req, res) {  
-    if (req.url == '/') { 
-        res.writeHead(200, { 'Content-Type': 'text/html' });    
-        res.write('<html><body><p>This is home Page.</p></body></html>');
-        res.end();
-    }
-    else if (req.url == "/student") {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write('<html><body><p>This is student Page.</p></body></html>');
-        res.end();
-    }
-    else if (req.url == "/admin") {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write('<html><body><p>This is admin Page.</p></body></html>');
-        res.end();
-    }
-    else
-        res.end('Invalid Request!');
-});
-server.listen(5000);
-console.log('Node.js web server at port 5000 is running..')
-
-expressrouting
-var express = require('express');
-var app = express();
-
-app.get('/hello', function(req, res){
-   res.send("Hello World!");
-});
-
-app.listen(3000);
-
-restapi
-const express=require('express');
-const app = express();
-const PORT=8080;
-
-app.use(express.json())
-
-app.get('/tshirt', (req,res) => {
-    res.status(200).send({
-        tshirt:'',
-        size:'large'
-    })
-});
-app.post('/tshirt/:id', (req,res) =>{
-    const {id} = req.params;
-    const {logo} = req.body;
-    if (!logo){
-        res.status(418).send({message :'weneed a logo'})
-    }
-    res.send({
-        tshirt: `with your ${logo} and ID of{id}`,
-    });
-});
-
-use of let,const,var
-<html>
-<head>
-<title>
-  Use of const, var and let
-</title>
-</head>
-<body>
-
-  <h2>Redeclaring a Variable Using var, let & const</h2>
-  <p class="demo">Using Var[declared as 10, redeclared as 25]: </p>
-  <p id="demo1"></p>
-  <p class="demo">Using Let[declared as 20, redeclared as 15]: </p>
-  <p id="demo2"></p>
-  <p class="demo">Using const[declared as 30, redeclared as 5]: </p >
-  <p id ="demo3"></p>
-  <script>
-    var x = 10;
-    let y = 20;
-    const z = 30; 
-    {
-      var x = 25;
-      let y = 15;
-      const z = 5;
-    }
-    document.getElementById("demo1").innerHTML =x;
-    document.getElementById("demo2").innerHTML =y;
-    document.getElementById("demo3").innerHTML =z;
- </script>
-</body>
-</html>
-
-control statement
-<!DOCTYPE html> 
-<html>
-<head>
-<title>
-control statement
-</title>
-</head> 
-<body>
-<p>Display a time-based greeting:</p>
-<p id="demo"></p>
-<script>
-    let hour = new Date().getHours();
-    let greeting;
-    if (hour < 20) {
-    greeting = "Good day";
-    } 
-    else {
-    greeting = "Good evening";
-    }
-    document.getElementById("demo").innerHTML = greeting;
-</script>
-</body> 
-</html>
-
-dom methods
-<!DOCTYPE html>
-<html>
-<head>
-<title>
-DOM Methods
-</title>
-</head>
-<body>
-<p id="demo1" style="font-family:verdana ; font-size:20px"></p>
-<p id="demo2" style="font-family:Times New Roman ; font-size:25px"></p>
-<p id="demo3" style="font-family:Comic sans MS ; font-size:30px"></p>
-<script>
-document.getElementById("demo1").innerHTML = "Hello World!";
-document.getElementById("demo2").innerHTML = "Hello World!";
-document.getElementById("demo3").innerHTML = "Hello World!";
-</script>
-</body>
-</html>
-
-arrow function
-<!DOCTYPE html>
-<html>
-<head>
-<title>
-arrow and generator function    
-</title>
-</head>
-<body>
-<p id="demo" style="font-family:castellar ; font-size:35px"></p>
-<script>
-var hello;
-hello = () => {
-return "Hello World!";
-}
-document.getElementById("demo").innerHTML = hello();
-</script>
-</body>
-</html>
-
-generator function
-<!DOCTYPE html>
-<html>
-<head>
-<title>
-arrow and generator function    
-</title>
-</head>
-<body>
-<script>
-function * fun()
-{
-    yield 10;
-    yield 20;
-    yield 30;   
-}
-var gen = fun();
-document.write(gen.next().value);
-document.write("<br>");
-document.write(gen.next().value);
-document.write("<br>");
-document.write(gen.next().value);
-</script>  
-</body>
-</html>
+1.Install jdk version 11
+2.Install sonarqube
+3.Install sonarscanner
+4.Environment variables-jdk,sonarqube,sonarscanner(main and bin folder)
+5.Sonarqube>bin>windows>startsonar.bat
+6.Open localhost:9000
+7.Sonarqube>cong>wrapper.conf> wrapper.java.command=C:/Program Files/Java/jdk-11.0.17/bin (note:forward slash*)
+8.Create ADL-exp7 file in c drive,PRACTS.java>java code for printing sum of first 10 natural numbers
+9.Sonarscanner>conf>sonar-scanner.properties
+  #----- Default source code encoding
+  #sonar.sourceEncoding=UTF-8
+  #sonar.projectKey=sastproject
+  #sonar.projectName=sastproject
+  #sonar.projectVersion=1.0
+  #sonar.projectBaseDir=C:\ADL-exp7
+  #sonar.sources=ADL-exp7
+10.On localhost>create project>manually>name-sastproject>setup
+11.Other ci>generate token>js>windows>copy command
+12.Cmd as administrator: cd \ , cd ADL-exp7 , paste command
